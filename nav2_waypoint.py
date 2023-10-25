@@ -29,37 +29,17 @@ def main():
    #wait for nav2 is active
   nav.waitUntilNav2Active()
 
-#Notes for orientiation in radians
-  #PI = 3.14 = 180
-  #PI/2 = 1.57 = 90
-  #negative is clockwise
-  #positive is anticlockwise
-  
-
   #send to goal
   goal_pose1 = create_pose_stamped(nav, 3.5, 1.0, 1.57)
   goal_pose2 = create_pose_stamped(nav, 2.0, 2.5, 3.14)
   goal_pose3 = create_pose_stamped(nav, 0.5, 1.0, -1.57)
   
-  #Goto pose
-  #nav.goToPose(goal_pose1)
-  #while not nav.isTaskComplete():
-  #  feedback = nav.getFeedback()
-    #print(feedback)
-  #print(nav.getResult())
-
-  #nav.goToPose(goal_pose2)
-  #while not nav.isTaskComplete():
-  #  feedback = nav.getFeedback()
-    #print(feedback)
-  #print(nav.getResult())
-
   #Follow waypoints
   waypoints =[goal_pose1, goal_pose2, goal_pose3] 
   nav.followWaypoints(waypoints)
   while not nav.isTaskComplete():
     feedback = nav.getFeedback()
-    #print(feedback)
+    print(feedback)
   print(nav.getResult())
 
   #-- shutdown

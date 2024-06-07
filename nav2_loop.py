@@ -7,6 +7,7 @@ from nav2_simple_commander.robot_navigator import BasicNavigator
 from geometry_msgs.msg import PoseStamped
 import tf_transformations
 
+#Function to set the goal pose
 def create_pose_stamped(navigator:BasicNavigator, position_x, position_y, rotation_z):
   q_x, q_y, q_z, q_w = tf_transformations.quaternion_from_euler(0.0, 0.0, rotation_z)
   goal_pose = PoseStamped()
